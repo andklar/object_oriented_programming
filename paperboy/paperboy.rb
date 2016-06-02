@@ -18,7 +18,12 @@ attr_reader :earnings
 
   def deliver(start_address, end_address)
     delivered = (end_address - start_address) / 2
-    @exp += ((end_address - start_address) / 2)
+    if @side == "ODD" && (end_address - start_address).even? && start_address.odd?
+      delivered += 1
+    elsif @side == "EVEN" && (end_address - start_address).even? && start_address.even?
+      delivered += 1
+    end
+    @exp += delivered
       if delivered < @quota
           @earnings += (0.25 * delivered) - 2
       elsif delivered >= @quota
@@ -32,7 +37,6 @@ attr_reader :earnings
   end
 
 end
-
 
 
 tommy = Paperboy.new("Tommy", 50, 0, "ODD", 0)
