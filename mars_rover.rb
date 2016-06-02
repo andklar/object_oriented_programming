@@ -1,6 +1,6 @@
 class Rover
 
-  attr_accessor :name
+  attr_accessor :x, :y, :direction
 
   def initialize(x, y, direction)
     @x = x
@@ -8,9 +8,6 @@ class Rover
     @direction = direction
   end
 
-  # def read_instruct
-  #
-  # end
 
   def move
     if @direction == "N"
@@ -23,10 +20,36 @@ class Rover
       @x -= 1
     end
   end
-  #
-  # def turn
-  #
-  # end
+
+
+  def turn_left
+    if @direction == "N"
+      @direction = "W"
+    elsif @direction == "E"
+      @direction = "N"
+    elsif @direction == "S"
+      @direction = "E"
+    elsif @direction == "W"
+      @direction = "S"
+    end
+  end
+
+  def turn_right
+    if @direction == "N"
+      @direction = "E"
+    elsif @direction == "E"
+      @direction = "S"
+    elsif @direction == "S"
+      @direction = "W"
+    elsif @direction == "W"
+      @direction = "N"
+    end
+  end
+
+  def read_instruct
+      command = "MMMMMRMRMMMMM"
+      command.split('')
+    end
 
 end
 
