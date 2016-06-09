@@ -16,7 +16,7 @@ attr_accessor :x, :y, :direction
         move
       end
     end
-    p "#{x_coordinate} #{y_coordinate} #{direction}"
+    p "#{x} #{y} #{direction}"
   end
 
   def move
@@ -57,13 +57,13 @@ puts "What is the starting position and orientation for the first rover?"
 start_position1 = gets.chomp.split(" ")
 
 puts "What are the instructions for the first rover? (L/R/M)"
-moves = gets.chomp.split("")
+moves1 = gets.chomp.split("")
 
 puts "What is the starting position and orientation for the second rover?"
 start_position2 = gets.chomp.split(" ")
 
 puts "What are the instructions for the second rover? (L/R/M)"
-moves_2 = gets.chomp.split("")
+moves2 = gets.chomp.split("")
 
 rover_1 = Rover.new(start_position1[0].to_i, start_position1[1].to_i, start_position1[2])
 rover_2 = Rover.new(start_position2[0].to_i, start_position2[1].to_i, start_position2[2])
